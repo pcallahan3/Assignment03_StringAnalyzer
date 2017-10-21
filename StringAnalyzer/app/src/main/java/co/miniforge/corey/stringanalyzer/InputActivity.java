@@ -43,12 +43,16 @@ public class InputActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), TextAnalyzerUtil.class);
-                intent.putExtra(text, input.getText().toString());
-                startActivity(intent);
-                startActivity(intent);
+                if(isEmpty(input)){
+                    Toast emptyMessageInput = Toast.makeText(getApplicationContext(), "Please enter a message!", Toast.LENGTH_LONG);
+                    emptyMessageInput.show();
 
-
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), TextAnalyzerUtil.class);
+                    intent.putExtra(text, input.getText().toString());
+                    startActivity(intent);
+                }
             }
         });
     }
