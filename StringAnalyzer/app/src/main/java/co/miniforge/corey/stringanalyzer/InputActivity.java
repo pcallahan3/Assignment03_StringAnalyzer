@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class InputActivity extends AppCompatActivity {
-    public static String intentTag = "inputData";
+    public static String text = "intentTag";
 
     EditText input;
     Button submit;
@@ -18,7 +19,9 @@ public class InputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
+
         locateViews();
+
 
         bindFunctionality();
     }
@@ -29,13 +32,41 @@ public class InputActivity extends AppCompatActivity {
     }
 
     void bindFunctionality(){
+
+
         submit.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TextAnalyzerUtil.class);
-                intent.putExtra(intentTag, input.getText().toString());
-                startActivity(intent);
+                if (isEmpty(input)) {
+                    Toast emptyNumberInput = Toast.makeText(getApplicationContext(), "Please enter a message", Toast.LENGTH_LONG);
+                    emptyNumberInput.show();
+
+                }else{
+                    Intent intent = new Intent(getApplicationContext(), TextAnalyzerUtil.class);
+                    intent.putExtra(text, input.getText().toString());
+                    startActivity(intent);
+                    startActivity(intent);
+
+                }
+
+
+
             }
         });
     }
+
+    private boolean isEmpty(EditText checkText) {
+        if (checkText.getText().toString().trim().length() > 0){
+            return false;
+        }
+        return true;
+    }
 }
+
+
+

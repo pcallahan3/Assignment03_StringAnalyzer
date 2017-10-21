@@ -14,7 +14,7 @@ public class AnalyzerActivity extends AppCompatActivity {
     TextView messageTextView;
     Button backToInputButton;
 
-    TextAnalyzerUtil textUtil;
+    //TextAnalyzerUtil textUtil;
 
     TextView uniqueWords;
     TextView characterCount;
@@ -30,7 +30,7 @@ public class AnalyzerActivity extends AppCompatActivity {
 
         getIntentData();
 
-        textUtil = new TextAnalyzerUtil(message);
+        //textUtil = new TextAnalyzerUtil(message);
 
         locateViews();
 
@@ -49,8 +49,8 @@ public class AnalyzerActivity extends AppCompatActivity {
     }
 
     void getIntentData(){
-        if(getIntent().hasExtra(InputActivity.intentTag)){
-            this.message = getIntent().getStringExtra(InputActivity.intentTag);
+        if(getIntent().hasExtra(InputActivity.text)){
+            this.message = getIntent().getStringExtra(InputActivity.text);
 
             //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         }
@@ -59,9 +59,9 @@ public class AnalyzerActivity extends AppCompatActivity {
     void bindData(){
         messageTextView.setText(message);
 
-        characterCount.setText(String.format("Character Count: %d", textUtil.getTextCharacterCount()));
-        wordCount.setText(String.format("Word Count: %d", textUtil.getWordCount()));
-        uniqueCharacters.setText(String.format("Unique Characters: %d", textUtil.getUniqueCharacters()));
-        specialCharactersCount.setText(String.format("Special Characters: %d", textUtil.getSpecialCharacterCount()));
+        //characterCount.setText(String.format("Character Count: %d", textUtil.getTextCharacterCount()));
+        //wordCount.setText(String.format("Word Count: %d", textUtil.getWordCount()));
+        //uniqueCharacters.setText(String.format("Unique Characters: %d", textUtil.getUniqueCharacters()));
+        //specialCharactersCount.setText(String.format("Special Characters: %d", textUtil.getSpecialCharacterCount()));
     }
 }
