@@ -74,8 +74,8 @@ public class AnalyzerActivity extends AppCompatActivity {
 
     void bindData(){
         messageTextView.setText(message);
-       // longestWord.setText(String.format("Longest word: %d", textUtil.getLongestWord()));
-        uniqueWords.setText(String.format("Unique words cound: %d", textUtil.getUniqueWords()));
+        longestWord.setText(String.format("Longest word: %s", textUtil.getLongestWord()));
+        uniqueWords.setText(String.format("Unique Words Count: %d", textUtil.getUniqueWords()));
         characterCount.setText(String.format("Character Count: %d", textUtil.getTextCharacterCount()));
         wordCount.setText(String.format("Word Count: %d", textUtil.getWordCount()));
         uniqueCharacters.setText(String.format("Unique Characters: %d", textUtil.getUniqueCharacters()));

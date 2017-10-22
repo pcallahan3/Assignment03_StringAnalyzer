@@ -77,8 +77,8 @@ public class TextAnalyzerUtil extends AppCompatActivity {
             if (s.length() > longest.length()) {
                 longest = s;
             }
-        }
 
+        }
         return longest;
     }
 
