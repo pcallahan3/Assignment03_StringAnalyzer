@@ -43,13 +43,14 @@ public class InputActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //Check to see if EditText is empty
                 if(isEmpty(input)){
                     Toast emptyMessageInput = Toast.makeText(getApplicationContext(), "Please enter a message!", Toast.LENGTH_LONG);
                     emptyMessageInput.show();
 
                 }
                 else{
-                    Intent intent = new Intent(getApplicationContext(), TextAnalyzerUtil.class);
+                    Intent intent = new Intent(getApplicationContext(), AnalyzerActivity.class);
                     intent.putExtra(text, input.getText().toString());
                     startActivity(intent);
                 }

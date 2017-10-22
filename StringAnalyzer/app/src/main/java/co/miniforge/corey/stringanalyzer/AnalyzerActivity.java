@@ -1,5 +1,6 @@
 package co.miniforge.corey.stringanalyzer;
 
+import android.support.annotation.StringDef;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -14,7 +15,7 @@ public class AnalyzerActivity extends AppCompatActivity {
     TextView messageTextView;
     Button backToInputButton;
 
-    //TextAnalyzerUtil textUtil;
+    TextAnalyzerUtil textUtil;
 
     TextView uniqueWords;
     TextView characterCount;
@@ -30,7 +31,7 @@ public class AnalyzerActivity extends AppCompatActivity {
 
         getIntentData();
 
-        //textUtil = new TextAnalyzerUtil(message);
+        textUtil = new TextAnalyzerUtil(message);
 
         locateViews();
 
@@ -58,10 +59,10 @@ public class AnalyzerActivity extends AppCompatActivity {
 
     void bindData(){
         messageTextView.setText(message);
-
-        //characterCount.setText(String.format("Character Count: %d", textUtil.getTextCharacterCount()));
-        //wordCount.setText(String.format("Word Count: %d", textUtil.getWordCount()));
-        //uniqueCharacters.setText(String.format("Unique Characters: %d", textUtil.getUniqueCharacters()));
-        //specialCharactersCount.setText(String.format("Special Characters: %d", textUtil.getSpecialCharacterCount()));
+        uniqueWords.setText(String.format("Unique words cound: %d", textUtil.getUniqueWords()));
+        characterCount.setText(String.format("Character Count: %d", textUtil.getTextCharacterCount()));
+        wordCount.setText(String.format("Word Count: %d", textUtil.getWordCount()));
+        uniqueCharacters.setText(String.format("Unique Characters: %d", textUtil.getUniqueCharacters()));
+        specialCharactersCount.setText(String.format("Special Characters: %d", textUtil.getSpecialCharacterCount()));
     }
 }

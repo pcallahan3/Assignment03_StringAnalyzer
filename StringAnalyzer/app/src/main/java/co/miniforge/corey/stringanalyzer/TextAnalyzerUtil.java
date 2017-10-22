@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by corey on 10/14/17.
@@ -30,15 +31,12 @@ public class TextAnalyzerUtil extends AppCompatActivity {
     TextView getInputText;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_text_analyzer_util);
-
-
+    /*
+        TextAnalyzerUtil to hold method behhaviors to operate on the data
+     */
+    public TextAnalyzerUtil(String text){
+        this.text = text;
     }
-
-
 
     public int getTextCharacterCount() {
 
