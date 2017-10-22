@@ -1,8 +1,10 @@
 package co.miniforge.corey.stringanalyzer;
 
+import android.content.Intent;
 import android.support.annotation.StringDef;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,7 @@ public class AnalyzerActivity extends AppCompatActivity {
         locateViews();
 
         bindData();
+        returnToInputActivity();
     }
 
     void locateViews() {
@@ -52,17 +55,31 @@ public class AnalyzerActivity extends AppCompatActivity {
     void getIntentData(){
         if(getIntent().hasExtra(InputActivity.text)){
             this.message = getIntent().getStringExtra(InputActivity.text);
-
             //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         }
     }
 
+    void returnToInputActivity() {
+        this.backToInputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), InputActivity.class);
+                intent.putExtra(message, backToInputButton.getText().toString());
+                startActivity(intent);
+            }
+
+        });
+    }
+
+
     void bindData(){
         messageTextView.setText(message);
+       // longestWord.setText(String.format("Longest word: %d", textUtil.getLongestWord()));
         uniqueWords.setText(String.format("Unique words cound: %d", textUtil.getUniqueWords()));
         characterCount.setText(String.format("Character Count: %d", textUtil.getTextCharacterCount()));
         wordCount.setText(String.format("Word Count: %d", textUtil.getWordCount()));
         uniqueCharacters.setText(String.format("Unique Characters: %d", textUtil.getUniqueCharacters()));
         specialCharactersCount.setText(String.format("Special Characters: %d", textUtil.getSpecialCharacterCount()));
+
     }
 }
